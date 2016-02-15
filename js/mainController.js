@@ -19,6 +19,8 @@ angular
           $scope.board = board.val();
           $scope.boardId = $rootScope.boardId = board.val().boardId;
           $scope.boardContext = $rootScope.boardContext = board.val().boardContext;
+
+          new Clipboard('#copy-board');
         });
 
 
@@ -105,6 +107,36 @@ angular
 
         auth.createUserAndLog(newUser, callback);
       };
+
+      $scope.deleteBoard = function() {
+        var result = window.confirm('Are you sure you want to delete it?');
+        if (result) {
+          $($scope.messages).each(function(index, message) {
+            $scope.messages.$remove(message);
+          });
+
+          $scope.board.$delete();
+        }
+      };
+
+      $scope.clipboardText = function() {
+
+        if($scope.board) {
+        var clipboard = '';
+
+        $($scope.board.columns).each(function(index, column) {
+          clipboard += '\n' + column.value + ' \n';
+
+          $($scope.messages).each(function(index2, message) {
+            if(message.type.id === column.id) {
+              clipboard += '- ' + message.text + ' (' + message.votes + ' votes) \n';
+            }
+          });
+        });
+
+        return clipboard;
+        }
+      }
 
       $scope.changeBoardContext = function() {
         $scope.boardRef.update({

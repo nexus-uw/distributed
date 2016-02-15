@@ -29,6 +29,7 @@
     "tiny-lr": "latest"
   },
   "dependencies": {
+    "clipboard": "^1.5.5",
     "express": "^4.13.3"
   }
 }
