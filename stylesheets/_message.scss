@@ -81,7 +81,7 @@ $column-colors-votes: #009688, #E6403D, #AB47BC, #039BE5, #FFB300, #F57C00;
   // @include transition(all .4s ease-in-out);
   // @include transform(rotateX(0deg) rotateY(0deg));
   // @include transform-style(preserve-3d);
-  //@include backface-visibility(hidden);
+  @include backface-visibility(hidden);
   @include position(absolute, 0 null null 0); 
   @include size(100% 100%);
   z-index: 900;
@@ -95,7 +95,7 @@ $column-colors-votes: #009688, #E6403D, #AB47BC, #039BE5, #FFB300, #F57C00;
 .message .back {
   // @include transform-style(preserve-3d);
   // @include transition(all .4s ease-in-out);
-  // @include backface-visibility(hidden);
+  @include backface-visibility(hidden);
   // @include transform(rotateY(-180deg));
   @include position(absolute, 0 null null 0); 
   @include size(100% 100%);
