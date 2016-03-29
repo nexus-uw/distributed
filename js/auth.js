@@ -2,7 +2,12 @@ angular
   .module('fireideaz')
   .service('Auth', function () {
     var mainRef = new Firebase("https://rangle-retro-supper.firebaseio.com");
-    
+
+
+
+
+
+  
     function createUserAndLog(newUser, callback) {
       mainRef.createUser({
         email    : newUser + '@fireideaz.com',
